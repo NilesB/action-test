@@ -12,6 +12,8 @@ jobs:
     - name: Run a multi-line script
       run: |
         echo "${GITHUB_REF:11}"
+        git config --global user.email "you@example.com"
+        git config --global user.name "Your Name"
         git remote set-url origin https://${{ secrets.PERSONAL_ACCESS_TOKEN }}:x-oauth-basic@github.com/${{ github.repository }}
         git checkout "${GITHUB_REF:11}"
         echo "test" >> "testcontent"
