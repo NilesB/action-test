@@ -16,9 +16,10 @@ jobs:
         git remote set-url origin https://${{ secrets.GITHUB_TOKEN }}:x-oauth-basic@github.com/${{ github.repository }}
         #git checkout "${GITHUB_REF:11}"
         git checkout master
-        if [[ $(git log -n 1 --pretty=%B "master" != "[ACTION]"* ]]; then
+        #if [[ $(git log -n 1 --pretty=%B "master" != "[ACTION]"* ]]; then
             echo "test" >> "testcontent2"
             git add -A
             git commit -m "[ACTION] Build assets"
             git push origin master
-        fi
+            sleep 1m
+        #fi
