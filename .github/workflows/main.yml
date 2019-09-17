@@ -15,7 +15,7 @@ jobs:
         git config --global user.name "${{ github.actor }}"
         git remote set-url origin https://${{ secrets.PERSONAL_ACCESS_TOKEN }}:x-oauth-basic@github.com/${{ github.repository }}
         git checkout "${GITHUB_REF:11}"
-        if [[ $(git log -n 1 --pretty=%B ${GITHUB_REF:11}) == [ACTION]* ]]; then
+        if [[ $(git log -n 1 --pretty=%B ${GITHUB_REF:11}) != [ACTION]* ]]; then
             echo "test" >> "testcontent2"
             git add -A
             git commit -m "[ACTION] Build assets"
