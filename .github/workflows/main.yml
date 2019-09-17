@@ -15,7 +15,9 @@ jobs:
         #git config --global user.name "Your Name"
         git remote set-url origin https://${{ secrets.PERSONAL_ACCESS_TOKEN }}:x-oauth-basic@github.com/${{ github.repository }}
         git checkout "${GITHUB_REF:11}"
-        git log -n 1 --pretty=%B ${GITHUB_REF:11}
+        if [[ $(git log -n 1 --pretty=%B ${GITHUB_REF:11}) == Update* ]]; then
+          echo "It's there!"
+        fi
         #echo "test" >> "testcontent"
         #git add -A
         #git commit -m "Test"
