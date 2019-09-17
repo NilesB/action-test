@@ -12,3 +12,7 @@ jobs:
     - name: Run a multi-line script
       run: |
       git remote set-url origin https://${{ secrets.PERSONAL_ACCESS_TOKEN }}:x-oauth-basic@github.com/${ GITHUB_REPOSITORY }
+      git checkout "$(echo ${{ GITHUB_REF }} | sed -E 's|refs/[a-zA-Z]+/||')"
+      echo "test" >> "testcontent"
+      git add -A
+      git push origin
