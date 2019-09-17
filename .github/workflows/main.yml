@@ -13,7 +13,7 @@ jobs:
       run: |
         git config --global user.email "${{ github.actor }}@users.noreply.github.com"
         git config --global user.name "${{ github.actor }}"
-        git remote set-url origin https://${{ secrets.PERSONAL_ACCESS_TOKEN }}:x-oauth-basic@github.com/${{ github.repository }}
+        git remote set-url origin https://${{ secrets.GITHUB_TOKEN }}:x-oauth-basic@github.com/${{ github.repository }}
         #git checkout "${GITHUB_REF:11}"
         git checkout master
         if [[ $(git log -n 1 --pretty=%B "master" != "[ACTION]"* ]]; then
