@@ -12,7 +12,7 @@ jobs:
     - name: Run a multi-line script
       run: |
         echo "${GITHUB_REF:11}"
-        git remote set-url origin https://${{ secrets.PERSONAL_ACCESS_TOKEN }}:x-oauth-basic@github.com/${ GITHUB_REPOSITORY }
+        git remote set-url origin https://${{ secrets.PERSONAL_ACCESS_TOKEN }}:x-oauth-basic@github.com/${{ GITHUB_REPOSITORY }}
         git checkout "${GITHUB_REF:11}"
         echo "test" >> "testcontent"
         git add -A
